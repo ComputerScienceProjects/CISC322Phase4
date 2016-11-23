@@ -168,6 +168,8 @@ public class CSVType implements DocumentType {
 //		menu.addElement(new MenuElement("Edit/Upper Case", new UpCaseAction()));
 		menu.addElement(new MenuElement("Edit/Move Column Left", new MoveColumnLeftAction()));
 		menu.addElement(new MenuElement("Edit/Move Column Right", new MoveColumnRightAction()));
+		menu.addElement(new MenuElement("Edit/Move Row Up", new MoveRowUpAction()));
+		menu.addElement(new MenuElement("Edit/Move Row Down", new MoveRowDownAction()));
 	    } catch (Exception e) {
 		Log.internalError("Menu element error "+e.getLocalizedMessage());
 	    }
