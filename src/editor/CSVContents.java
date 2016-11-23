@@ -57,16 +57,26 @@ public class CSVContents
     } // end constructor
 	
     @Override
-	public int getRowCount() { return values.size(); }
+ 	public int getRowCount() { return values.size(); }
     
     @Override
-	public int getColumnCount() { return values.get(0).length; }
+ 	public int getColumnCount() { return values.get(0).length; }
     
-    @Override
+    @Override    
 	public Object getValueAt(int row, int col) {
 		return values.get(row)[col];
 	}
-	
+    
+    public Object[] getColumnAt(int col) {
+    	int height = values.size();
+    	Object[] theColumn = new Object[height];
+    	for(int row = 0; row < height; row++)
+    	{
+    		theColumn[row] = getValueAt(row, col);
+    	}
+    	return theColumn;
+    }
+    	
 	@Override
 	public boolean isCellEditable(int row, int col) {
 		return true;
@@ -97,7 +107,7 @@ public class CSVContents
 	csvr.close(); //Close the input file.
 	
 	this.fireTableStructureChanged();
-	
+
 	//System.err.println("Done open");
     } // end method open
 
@@ -142,13 +152,12 @@ public class CSVContents
      */
     public void save(OutputStream out) throws IOException {
 	try {
-	    write(new OutputStreamWriter(out));
+		write(new OutputStreamWriter(out));
 	} catch (Exception e) {
 	    out.close();
 	    //	    throw new IOException(e);
 	    throw new IOException(e.getLocalizedMessage());
 	}
-	
     } // end save
 
     /**
