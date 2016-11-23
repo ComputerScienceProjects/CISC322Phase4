@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 // For documentation purposes, import only those classes from edfmwk that are
 // actually used.
@@ -36,7 +37,6 @@ public class MoveRowDownAction extends CSVAction {
      */
     protected void changeCSV(CSVContents con, int startRow, int startCol, int endRow, int endCol) {
     try {
-    	if(endRow < con.getRowCount()) {	// A valid row is selected. (The last row is invalid, since it's farthest up.)
     		// Store the row that will be displaced upwards by the move.
     		Object[] oldRow = con.getRowAt(endRow);
     		int width = con.getColumnCount();
@@ -54,8 +54,13 @@ public class MoveRowDownAction extends CSVAction {
 			}
 			//Tell the listeners that we changed the data in the table.
 			con.fireTableDataChanged();
-    	}
+			
     } catch (Exception e) {
+    	if(startRow < 0) {
+    		JOptionPane.showMessageDialog(null, "Please select a row in order to perform that action.", "No Row Selected", JOptionPane.ERROR_MESSAGE);
+    	} else if (endRow < con.getRowCount()) {
+    		JOptionPane.showMessageDialog(null, "Row index exceeded!", "This Should Not Happen", JOptionPane.ERROR_MESSAGE);
+    	}
     	e.printStackTrace();
     }
     } // end changeCSV
