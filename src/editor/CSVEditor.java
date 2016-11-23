@@ -24,6 +24,8 @@ import ca.queensu.cs.dal.flex.i18n.Localizer;
  * See the <a href="../doc-files/copyright.html">copyright notice</a> for details.
  */
 
+
+//CSVEditor is the main application class.
 public class CSVEditor extends Application {
     private MenuDescriptor menu;
     /* package */ MainPanel mainPanel;
