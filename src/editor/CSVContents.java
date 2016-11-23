@@ -51,7 +51,7 @@ public class CSVContents
 	super();
 	values = new ArrayList<String[]>();
 
-	String[] s = {"Test","Hello","World"}; //Broken, for some reason this array length determines the
+	String[] s = {"Test","Hello"}; //Broken, for some reason this array length determines the
 	//length of the opened file.
 	
 	values.add(s);
