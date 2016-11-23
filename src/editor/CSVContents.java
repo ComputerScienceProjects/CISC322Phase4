@@ -56,13 +56,26 @@ public class CSVContents
 	values.add(s);
     } // end constructor
 	
-    
+    @Override
 	public int getRowCount() { return values.size(); }
+    
+    @Override
 	public int getColumnCount() { return values.get(0).length; }
+    
+    @Override
 	public Object getValueAt(int row, int col) {
 		return values.get(row)[col];
 	}
-
+	
+	@Override
+	public boolean isCellEditable(int row, int col) {
+		return true;
+	}
+	
+	@Override
+	public void setValueAt(Object value, int row, int col) {
+		values.get(row)[col] = (String)value;
+	}
     
     /**
      * Reads the entire document, and closes the stream from which it is read.
