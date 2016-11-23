@@ -106,8 +106,12 @@ public class CSVContents
      * @param out Where to write the document
      * @throws IOException if any I/O errors occur.
      */
-    public void write(Writer out) // throws IOException
+    public void write(Writer out)  throws IOException
     {
+    CSVWriter csvw = new CSVWriter(out);
+    csvw.writeAll(values);
+    //Close the writer
+    csvw.close();
     /*
 	//System.err.println("Writing...");
 	PrintWriter pr = new PrintWriter(out);
@@ -137,15 +141,14 @@ public class CSVContents
      * closed the stream.
      */
     public void save(OutputStream out) throws IOException {
-    /* stub
 	try {
-	    write(new PrintWriter(out));
+	    write(new OutputStreamWriter(out));
 	} catch (Exception e) {
 	    out.close();
 	    //	    throw new IOException(e);
 	    throw new IOException(e.getLocalizedMessage());
 	}
-	*/
+	
     } // end save
 
     /**
