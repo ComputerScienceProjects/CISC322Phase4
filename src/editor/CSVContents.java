@@ -51,8 +51,7 @@ public class CSVContents
 	super();
 	values = new ArrayList<String[]>();
 
-	String[] s = {"Test","Hello"}; //Broken, for some reason this array length determines the
-	//length of the opened file.
+	String[] s = {};
 	
 	values.add(s);
     } // end constructor
@@ -83,7 +82,9 @@ public class CSVContents
 	//Read in the .csv file.
 	values = csvr.readAll();
 	csvr.close(); //Close the input file.
-
+	
+	this.fireTableStructureChanged();
+	
 	//System.err.println("Done open");
     } // end method open
 

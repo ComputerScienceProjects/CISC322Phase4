@@ -25,6 +25,7 @@ public class CSVDocument
     implements javax.swing.event.DocumentListener
 {
     private CSVContents contents;
+    private JTable jta;
 
     /**
      * Constructs a document representation.
@@ -34,7 +35,7 @@ public class CSVDocument
 	super(type);
 	contents = new CSVContents();
 //	contents.addDocumentListener(this);
-	JTable jta = new JTable(contents);
+	jta = new JTable(contents);
 	
 	//Stretch the table to fill
 	jta.setFillsViewportHeight(true);

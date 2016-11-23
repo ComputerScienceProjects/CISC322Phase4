@@ -27,10 +27,10 @@ import ca.queensu.cs.dal.flex.i18n.Localizer;
 public class TextEditor extends Application {
     private MenuDescriptor menu;
     /* package */ MainPanel mainPanel;
-    private static String title = "Simple Text File Editor";
-    private static String copyright = "2010 David Alex Lamb";
+    private static String title = "Simple Text and CSV File Editor";
+    private static String copyright = "2016 CISC 322 Group 7";
     private static String aboutMsg = title + "\nCopyright " + copyright;
-    private static String packageName = "ca.queensu.cs.dal.txt";
+    private static String packageName = "editor";
     private static String version = "0.1";
     private static Register register;
     private final String helpURI =
