@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 // For documentation purposes, import only those classes from edfmwk that are
 // actually used.
@@ -54,9 +55,14 @@ public class MoveRowUpAction extends CSVAction {
 			}
 			//Tell the listeners that we changed the data in the table.
 			con.fireTableDataChanged();
+    	} else {
+    		throw new Exception();
     	}
     } catch (Exception e) {
-    	e.printStackTrace();
+    	if(startRow < 0) {
+    		JOptionPane.showMessageDialog(null, "Please select a row in order to perform that action.", "No Row Selected", JOptionPane.ERROR_MESSAGE);
+    		e.printStackTrace();
+    	}
     }
     } // end changeCSV
 } // end class MoveRowUpAction
