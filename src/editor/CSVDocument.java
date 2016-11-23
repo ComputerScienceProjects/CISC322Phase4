@@ -44,7 +44,7 @@ public class CSVDocument
 	scrollPane.setOpaque(true);
 	
 	window = scrollPane;
-    } // end TextDocument
+    } // end CSVDocument
 
     // Text document change listeners: all invoke the framework's own document
     // change listeners.
