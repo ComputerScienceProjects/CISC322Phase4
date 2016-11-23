@@ -27,7 +27,7 @@ import ca.queensu.cs.dal.flex.log.Log;
  */
 public class CSVType implements DocumentType {
     /**
-     * Construct a new factory for {@link ca.queensu.cs.dal.txt.TextContents}
+     * Construct a new factory for {@link ca.queensu.cs.dal.txt.CSVContents}
      * objects.
      */
     public CSVType() {}
@@ -162,10 +162,12 @@ public class CSVType implements DocumentType {
 	if (menu==null) {
 	    menu = new MenuDescriptor();
 	    try {
-		menu.addElement(new MenuElement("Edit/Capitalize", new CapitalizeAction()));
-		menu.addElement(new MenuElement("Edit/Delete", new DeleteAction()));
-		menu.addElement(new MenuElement("Edit/Lower Case", new DownCaseAction()));
-		menu.addElement(new MenuElement("Edit/Upper Case", new UpCaseAction()));
+//		menu.addElement(new MenuElement("Edit/Capitalize", new CapitalizeAction()));
+//		menu.addElement(new MenuElement("Edit/Delete", new DeleteAction()));
+//		menu.addElement(new MenuElement("Edit/Lower Case", new DownCaseAction()));
+//		menu.addElement(new MenuElement("Edit/Upper Case", new UpCaseAction()));
+		menu.addElement(new MenuElement("Edit/Move Column Left", new MoveColumnLeftAction()));
+		menu.addElement(new MenuElement("Edit/Move Column Right", new MoveColumnRightAction()));
 	    } catch (Exception e) {
 		Log.internalError("Menu element error "+e.getLocalizedMessage());
 	    }
@@ -193,4 +195,4 @@ public class CSVType implements DocumentType {
      */
     private static String[] extensions = { "csv" };
 
-} // end class TextType
+} // end class CSVType
