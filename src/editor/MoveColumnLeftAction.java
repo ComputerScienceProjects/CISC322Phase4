@@ -50,6 +50,8 @@ public class MoveColumnLeftAction extends CSVAction {
 			for(int row = 0; row < height; row++) {
 				con.setValueAt(oldCol[row], row, endCol-1);
 			}
+	    	//Tell the listeners that we changed the data in the table (by moving columns)
+	    	con.fireTableDataChanged();
     	}
     } catch (Exception e) {
     	e.printStackTrace();
