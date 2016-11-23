@@ -67,6 +67,10 @@ public class CSVContents
 		return values.get(row)[col];
 	}
     
+    public Object[] getRowAt(int row) {
+    	return values.get(row).clone();	// Sufficient
+    }
+    
     public Object[] getColumnAt(int col) {
     	int height = values.size();
     	Object[] theColumn = new Object[height];
@@ -212,4 +216,4 @@ public class CSVContents
     } // end safelyGetText 
     */
 
-} // end TextContents
+} // end CSVContents
