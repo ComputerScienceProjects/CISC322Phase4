@@ -49,7 +49,7 @@ public abstract class CSVAction extends DefaultAction {
     protected abstract void changeCSV(CSVContents con, int startRow, int startCol, int endRow, int endCol);
 
     /**
-     * Perform the appropriate action (defined by {@link #changeText}) on the
+     * Perform the appropriate action (defined by {@link #changeCSV}) on the
      *    currently-selected region of the document.
      */
     public void actionPerformed(ActionEvent ae) {
