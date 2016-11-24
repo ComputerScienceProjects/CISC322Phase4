@@ -1,4 +1,3 @@
-// $Id: TextContents.java,v 1.0 2012/10/04 13:57:18 dalamb Exp $
 package editor;
 
 import java.io.*;
@@ -31,7 +30,7 @@ import java.awt.Dimension;
 /**
  * Internal representation of a text document.
  *<p>
- * Copyright 2010-2011 David Alex Lamb.
+ * Copyright 2016 CISC 322 Group 7.
  * See the <a href="../doc-files/copyright.html">copyright notice</a> for details.
  */
 public class CSVContents

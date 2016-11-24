@@ -1,4 +1,3 @@
-// $Id: CSVType.java,v 1.3 2012/10/24 17:06:40 dalamb Exp $
 // Import only those classes from edfmwk that are essential, for documentation purposes
 package editor;
 import java.awt.Component;
@@ -23,7 +22,7 @@ import ca.queensu.cs.dal.flex.log.Log;
  * <a href="http://en.wikipedia.org/wiki/Factory_(software_concept)">Factory</a>
  * for representations of csv files.
  *<p>
- * Copyright 2010-2011 David Alex Lamb.
+ * Copyright 2016 CISC 322 Group 7.
  */
 public class CSVType implements DocumentType {
     /**

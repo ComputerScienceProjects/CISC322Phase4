@@ -1,4 +1,3 @@
-
 package editor;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;

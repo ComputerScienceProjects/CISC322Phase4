@@ -1,4 +1,3 @@
-// $Id: TextDocument.java,v 1.0 2012/10/04 13:57:18 dalamb Exp $
 package editor;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -17,7 +16,7 @@ import ca.queensu.cs.dal.edfmwk.doc.DocumentListener;
  * Implementation of a text document, which is (indirectly) defined in
  * terms of a Swing {@link javax.swing.Document}.
  *<p>
- * Copyright 2010 David Alex Lamb.
+ * Copyright 2016 CISC 322 Group 7.
  * See the <a href="../doc-files/copyright.html">copyright notice</a> for details.
  */
 public class CSVDocument
