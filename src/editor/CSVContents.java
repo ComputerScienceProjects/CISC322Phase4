@@ -1,5 +1,4 @@
 package editor;
-
 import java.io.*;
 //import java.util.*;
 import ca.queensu.cs.dal.edfmwk.doc.DocumentException;
@@ -63,20 +62,44 @@ public class CSVContents
     } // end constructor
 	
     @Override
+    /**
+     * Return the number of rows in the table.
+     * @return the number of rows.
+     */
  	public int getRowCount() { return values.size(); }
     
     @Override
+    /**
+     * Return the number of columns in the table.
+     * @return the number of columns.
+     */
  	public int getColumnCount() { return values.get(0).length; }
     
     @Override    
+    /**
+     * Get the specified value in the table.
+     * @param row The index of the row in the table.
+     * @param col The index of the column in the table.
+     * @return the value at (row,col).
+     */
 	public Object getValueAt(int row, int col) {
 		return values.get(row)[col];
-	}
+	} //end getValueAt
     
+    /**
+     * Get the specified row in the table.
+     * @param row The index of the row being retrieved.
+     * @return The row as a array of Objects.
+     */
     public Object[] getRowAt(int row) {
     	return values.get(row).clone();	// Sufficient
-    }
+    } //end getRowAt
     
+    /**
+     * Get the specified column in the table.
+     * @param col The index of the column being retrieved.
+     * @return The column as a array of Objects.
+     */    
     public Object[] getColumnAt(int col) {
     	int height = values.size();
     	Object[] theColumn = new Object[height];
@@ -85,23 +108,35 @@ public class CSVContents
     		theColumn[row] = getValueAt(row, col);
     	}
     	return theColumn;
-    }
+    } // end getColumnAt
     	
+    /**
+     * Returns true if a cell given cell is editable, which is always true.
+     * @param row Ignored.
+     * @param col Ignored.
+     * @return <b>true</b>.
+     */
 	@Override
 	public boolean isCellEditable(int row, int col) {
 		return true; //All cells are editable
-	}
+	} //end isCellEditable
 	
+	/**
+	 * Sets the value at the given location in the table.
+	 * @param value The value to set (String).
+	 * @param row The row to set the value in.
+	 * @param col The column to set the value in.
+	 */
 	@Override
 	public void setValueAt(Object value, int row, int col) {
 		values.get(row)[col] = (String)value;
 		//Tell listeners we updated this element.
 		this.fireTableCellUpdated(row, col);
-	}
+	} //end setValueAt
 	
     /**
      * Reads the entire document, and closes the stream from which it is read.
-     * @param in Where to read the document from.
+     * @param in The InputStream to read the document from.
      * @throws IOException if any I/O errors occur, in which case it will have
      * closed the stream.
      */
@@ -118,6 +153,7 @@ public class CSVContents
 	values = csvr.readAll();
 	csvr.close(); //Close the input file.
 	
+	//The table's whole structure has changed, so we need to notify any listeners.
 	this.fireTableStructureChanged();
 
 	//System.err.println("Done open");

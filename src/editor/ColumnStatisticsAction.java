@@ -15,10 +15,12 @@ import javax.swing.JOptionPane;
  */
 public class ColumnStatisticsAction extends CSVAction {
 
-	
+	/**
+     * Constructs a column statistics action -- display statistics about the selected column.
+     */
 	public ColumnStatisticsAction() {
 		super("Column Statistics");
-	}
+	} //end constructor ColumnStatisticsAction
 	
     /**
      * Reports statistics to the user about the selected column.
@@ -72,5 +74,5 @@ public class ColumnStatisticsAction extends CSVAction {
 				                          + "Mean: " + mean + "\n"
 				                          + "Max: " + max + "\n"
 				                          + "Min: " + min + "\n");
-	}
+	} // end changeCSV
 }

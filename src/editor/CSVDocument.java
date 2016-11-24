@@ -141,7 +141,7 @@ public class CSVDocument
 	}
 	*/
 	setChanged(false);
-    } // open
+    } // end open
 
     /**
      * Gets the contents of the text document, for those few methods within
@@ -154,7 +154,7 @@ public class CSVDocument
      * @param str The string to be check.
      * @return <b>true</b> if <code>str</code> represents an integer.
      */
-    public static boolean isInteger(String str) {
+    private static boolean isInteger(String str) {
     	if (str.isEmpty()) {
     		//Empty strings contain no integers.
     		return false;
@@ -174,7 +174,7 @@ public class CSVDocument
     	}
     	//Every character is of the correct type.
     	return true;
-    }
+    } // end isInteger
 
 } // end class TextDocument
 

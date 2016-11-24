@@ -32,9 +32,9 @@ public class MoveColumnRightAction extends CSVAction {
      * Move the selected column right.
      * If multiple columns are selected, move multiple columns right.
      * @param con CSV document to change.
-     * @param startRow Index of the first row to change.
+     * @param startRow Ignored.
      * @param startCol Index of the first column to change.
-     * @param endRow Index one beyond the last row to change.
+     * @param endRow Ignored.
      * @param endCol Index one beyond the last column to change.
      */
     protected void changeCSV(CSVContents con, int startRow, int startCol, int endRow, int endCol) {

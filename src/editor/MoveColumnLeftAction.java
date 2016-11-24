@@ -22,7 +22,7 @@ import ca.queensu.cs.dal.flex.log.Log;
  */
 public class MoveColumnLeftAction extends CSVAction {
 	/**
-     * Constructs a column movement action -- move selected column(s) right.
+     * Constructs a column movement action -- move selected column(s) left.
      */
     public MoveColumnLeftAction() {
 	super("Move Column(s) Left");
@@ -32,15 +32,15 @@ public class MoveColumnLeftAction extends CSVAction {
      * Move the selected column left.
      * If multiple columns are selected, move multiple columns left.
      * @param con CSV document to change.
-     * @param startRow Index of the first row to change.
+     * @param startRow Ignored.
      * @param startCol Index of the first column to change.
-     * @param endRow Index one beyond the last row to change.
+     * @param endRow Ignored.
      * @param endCol Index one beyond the last column to change.
      */
     protected void changeCSV(CSVContents con, int startRow, int startCol, int endRow, int endCol) {
     try {
     	if(startCol > 0) {	// A valid column is selected. (0 is invalid, since it's farthest left.)
-    		// Store the column that will be displaced rightwards by the move.
+    		// Store the column that will be displaced leftwards by the move.
     		Object[] oldCol = con.getColumnAt(startCol - 1);
     		int height = con.getRowCount();
     		for(int col = startCol; col < endCol; col++) {
@@ -51,7 +51,7 @@ public class MoveColumnLeftAction extends CSVAction {
     				con.setValueAt(thisCol[row], row, col-1);
     			}
     		}
-    		// Replace the rightmost selected column with the displaced column.
+    		// Replace the leftmost selected column with the displaced column.
 			for(int row = 0; row < height; row++) {
 				con.setValueAt(oldCol[row], row, endCol-1);
 			}

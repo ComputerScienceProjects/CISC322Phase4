@@ -22,7 +22,7 @@ import ca.queensu.cs.dal.flex.log.Log;
  */
 public class MoveRowDownAction extends CSVAction {
 	/**
-     * Constructs a row movement action -- move selected row(s) right.
+     * Constructs a row movement action -- move selected row(s) down.
      */
     public MoveRowDownAction() {
 	super("Move Row(s) Down");
@@ -33,13 +33,13 @@ public class MoveRowDownAction extends CSVAction {
      * If multiple rows are selected, move multiple rows down.
      * @param con CSV document to change.
      * @param startRow Index of the first row to change.
-     * @param startCol Index of the first column to change.
+     * @param startCol Ignored.
      * @param endRow Index one beyond the last row to change.
-     * @param endCol Index one beyond the last column to change.
+     * @param endCol Ignored.
      */
     protected void changeCSV(CSVContents con, int startRow, int startCol, int endRow, int endCol) {
     try {
-    		// Store the row that will be displaced upwards by the move.
+    		// Store the row that will be displaced downwards by the move.
     		Object[] oldRow = con.getRowAt(endRow);
     		int width = con.getColumnCount();
     		for(int row = endRow-1; row >= startRow; row--) {
