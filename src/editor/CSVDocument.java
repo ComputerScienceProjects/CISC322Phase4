@@ -18,7 +18,7 @@ import ca.queensu.cs.dal.edfmwk.doc.DocumentEvent;
 import ca.queensu.cs.dal.edfmwk.doc.DocumentException;
 import ca.queensu.cs.dal.edfmwk.doc.DocumentListener;
 /**
- * Implementation of a text document, which is (indirectly) defined in
+ * Implementation of a csv document, which is (indirectly) defined in
  * terms of a Swing {@link javax.swing.Document}.
  *<p>
  * Copyright 2016 CISC 322 Group 7.
@@ -37,6 +37,7 @@ public class CSVDocument
     
     //A renderer for right-justifying integer elements.
     private static final DefaultTableCellRenderer rightRenderer;
+    //The normal default renderer. Usually align things to the left.
     private static final DefaultTableCellRenderer defaultRenderer = new DefaultTableCellRenderer();
     
     static {
@@ -147,7 +148,7 @@ public class CSVDocument
     } // end open
 
     /**
-     * Gets the contents of the text document, for those few methods within
+     * Gets the contents of the csv document, for those few methods within
      *    this package that need direct access (such as actions).
      */
     CSVContents getContents() { return contents; }
