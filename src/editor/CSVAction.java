@@ -14,22 +14,22 @@ import ca.queensu.cs.dal.flex.log.Log;
 
 /**
  * Parent for {@link javax.swing.Action Actions} for implementing changes to
- * the current text selection. Subclasses need only implement the
- * {@link #changeText} method.
+ * the current table selection. Subclasses need only implement the
+ * {@link #changeCSV} method.
  *<p>
  * Copyright 2010-2011 David Alex Lamb.
  * See the <a href="../doc-files/copyright.html">copyright notice</a> for details.
  */
 public abstract class CSVAction extends DefaultAction {
     /**
-     * Constructs a text manipulation action
+     * Constructs a csv manipulation action
      */
     private CSVAction() {
 	super("Text");
     } // end constructor TextAction
 
     /**
-     * Constructs a text manipulation action
+     * Constructs a csv manipulation action
      * @param name Name of the action.
      */
     protected CSVAction(String name) {
@@ -37,7 +37,7 @@ public abstract class CSVAction extends DefaultAction {
     } // end constructor TextAction
     
     /**
-     * Perform some appropriate change on a selected region of text;
+     * Perform some appropriate change on a selected region of the table;
      *    subclasses must implement this method. If
      * <code>start</code> and <code>end</code> are equal, the operation might
      * do nothing (as in capitalization) or might affect the character before
@@ -104,4 +104,4 @@ public abstract class CSVAction extends DefaultAction {
 	} else System.out.println("No ctl-C keystroke");
     } // debugStroke
     */
-} // end class TextAction
+} // end class CSVAction
