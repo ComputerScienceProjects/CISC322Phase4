@@ -18,7 +18,7 @@ import ca.queensu.cs.dal.edfmwk.Menus;
 import ca.queensu.cs.dal.flex.Register;
 import ca.queensu.cs.dal.flex.i18n.Localizer;
 /**
- * A simple text editor using the document framework.
+ * A simple text and csv editor using the document framework.
  *<p>
  * Copyright 2010 David Alex Lamb.
  * See the <a href="../doc-files/copyright.html">copyright notice</a> for details.
