@@ -64,6 +64,7 @@ public class CSVDocument
 		}
 	};
 	
+	
 	//Stretch the table to fill.
 	jta.setFillsViewportHeight(true);
 	jta.setPreferredScrollableViewportSize(new Dimension(500,200));

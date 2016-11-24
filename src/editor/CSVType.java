@@ -173,6 +173,7 @@ public class CSVType implements DocumentType {
 		menu.addElement(new MenuElement("Edit/Move Row Up", new MoveRowUpAction()));
 		menu.addElement(new MenuElement("Edit/Move Row Down", new MoveRowDownAction()));
 		menu.addElement(new MenuElement("View/Column Statistics", new ColumnStatisticsAction()));
+		menu.addElement(new MenuElement("View/Unsort", new UnsortAction()));
 	    } catch (Exception e) {
 		Log.internalError("Menu element error "+e.getLocalizedMessage());
 	    }
