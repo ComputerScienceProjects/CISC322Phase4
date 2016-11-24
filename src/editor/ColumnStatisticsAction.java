@@ -73,6 +73,7 @@ public class ColumnStatisticsAction extends CSVAction {
 				                          + "Non-blank: " + nonblankCount + "\n"
 				                          + "Mean: " + mean + "\n"
 				                          + "Max: " + max + "\n"
-				                          + "Min: " + min + "\n");
+				                          + "Min: " + min + "\n",
+				                          "Statistics", JOptionPane.INFORMATION_MESSAGE);
 	} // end changeCSV
 }
