@@ -1,4 +1,4 @@
-// $Id: DeleteAction.java,v 1.0 2012/10/04 13:57:18 dalamb Exp $
+
 package editor;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
@@ -13,9 +13,9 @@ import ca.queensu.cs.dal.edfmwk.act.DefaultAction;
 import ca.queensu.cs.dal.edfmwk.win.CommonWindow;
 import ca.queensu.cs.dal.flex.log.Log;
 /**
- * {@link javax.swing.Action} for implementing "Delete" functionality.
+ * {@link javax.swing.Action} for implementing "Move Row(s) Up" functionality.
  *<p>
- * Copyright 2010 David Alex Lamb.
+ * Copyright 2016 CISC 322 Group 7.
  * See the <a href="../doc-files/copyright.html">copyright notice</a> for details.
  */
 public class MoveRowUpAction extends CSVAction {
