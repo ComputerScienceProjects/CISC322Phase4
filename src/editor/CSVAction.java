@@ -66,7 +66,7 @@ public abstract class CSVAction extends DefaultAction {
 	    int endCol   = startCol + table.getSelectedColumnCount();
 	    changeCSV(con,startRow,startCol,endRow,endCol);
 	} catch (Exception ex) {
-	    Log.error("Text action error: "+ex.getLocalizedMessage());
+	    Log.error("CSV action error: "+ex.getLocalizedMessage());
 	}
     }
 

@@ -1,4 +1,4 @@
-// $Id: TextType.java,v 1.3 2012/10/24 17:06:40 dalamb Exp $
+// $Id: CSVType.java,v 1.3 2012/10/24 17:06:40 dalamb Exp $
 // Import only those classes from edfmwk that are essential, for documentation purposes
 package editor;
 import java.awt.Component;
@@ -21,7 +21,7 @@ import ca.queensu.cs.dal.flex.log.Log;
 
 /**
  * <a href="http://en.wikipedia.org/wiki/Factory_(software_concept)">Factory</a>
- * for representations of text files.
+ * for representations of csv files.
  *<p>
  * Copyright 2010-2011 David Alex Lamb.
  */
@@ -34,7 +34,7 @@ public class CSVType implements DocumentType {
 
     public String getName() { return "CSV file"; }
     /**
-     * Create and initialize a new representation for a text document.
+     * Create and initialize a new representation for a csv document.
      * @return the new document contents.
      */
     public Document newDocument() {
@@ -123,7 +123,7 @@ public class CSVType implements DocumentType {
 
 
     /**
-     * Map from action names to text-component-specific actions.
+     * Map from action names to csv-component-specific actions.
      * It should only be considered valid within a single call to
      * {@link #getMenu}
      */
