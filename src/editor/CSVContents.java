@@ -162,7 +162,7 @@ public class CSVContents
     /**
      * Writes the entire document.
      * @param out Where to write the document
-     * @param jta JTable that we're saving from, tells write() the order to write the rows in.
+     * @param jta JTable that we're saving from, tells <code>write</code> the order to write the rows in.
      * @throws IOException if any I/O errors occur.
      */
     public void write(Writer out, JTable jta)  throws IOException
@@ -200,7 +200,7 @@ public class CSVContents
     /**
      * Saves the entire document.
      * @param out Where to write the document.
-     * @param jta JTable that we're saving from, tells save the order to write the rows in.
+     * @param jta JTable that we're saving from, tells <code>save</code> the order to write the rows in.
      * @throws IOException if any I/O errors occur, in which case it will have
      * closed the stream.
      */
@@ -238,6 +238,4 @@ public class CSVContents
     return new ByteArrayInputStream(s.getBytes());
     } // end getContentStream
 	
-
-
 } // end CSVContents

@@ -54,7 +54,9 @@ public class CSVDocument
 	jta = new JTable(contents) {
 		@Override
 		public TableCellRenderer getCellRenderer(int row, int col) {
-			if (CSVDocument.isInteger((String)dataModel.getValueAt(row, col))) {
+			//Get the sorted version of the row index, if necessary.
+			int modelRow = this.convertRowIndexToModel(row);
+			if (CSVDocument.isInteger((String)dataModel.getValueAt(modelRow, col))) {
 				return rightRenderer;
 			} else {
 				return defaultRenderer;
