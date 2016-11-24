@@ -37,9 +37,11 @@ public class CSVDocument
 //	contents.addDocumentListener(this);
 	jta = new JTable(contents);
 	
-	//Stretch the table to fill
+	//Stretch the table to fill.
 	jta.setFillsViewportHeight(true);
 	jta.setPreferredScrollableViewportSize(new Dimension(500,200));
+	//Allow sorting of the table.
+	jta.setAutoCreateRowSorter(true);
 	JScrollPane scrollPane = new JScrollPane(jta);
 	scrollPane.setOpaque(true);
 	
@@ -78,7 +80,8 @@ public class CSVDocument
      * closed the stream; isChanged() is unchanged.
      */
     public void save(OutputStream out) throws IOException {
-	contents.save(out);
+    //The JTable parameter tells save the order to write out the rows (if sorted).
+	contents.save(out,jta);
 	setChanged(false);
     } // save
 

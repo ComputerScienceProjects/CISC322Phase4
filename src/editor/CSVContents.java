@@ -118,12 +118,17 @@ public class CSVContents
     /**
      * Writes the entire document.
      * @param out Where to write the document
+     * @param jta JTable that we're saving from, tells write() the order to write the rows in.
      * @throws IOException if any I/O errors occur.
      */
-    public void write(Writer out)  throws IOException
+    public void write(Writer out, JTable jta)  throws IOException
     {
     CSVWriter csvw = new CSVWriter(out);
-    csvw.writeAll(values);
+    for (int i=0; i<this.getRowCount();i++) {
+    	//Write the ith element from the current sorted order.
+    	int index = jta.convertRowIndexToModel(i);
+    	csvw.writeNext(values.get(index));
+    }
     //Close the writer
     csvw.close();
     /*
@@ -151,12 +156,13 @@ public class CSVContents
     /**
      * Saves the entire document.
      * @param out Where to write the document.
+     * @param jta JTable that we're saving from, tells save the order to write the rows in.
      * @throws IOException if any I/O errors occur, in which case it will have
      * closed the stream.
      */
-    public void save(OutputStream out) throws IOException {
+    public void save(OutputStream out,JTable jta) throws IOException {
 	try {
-		write(new OutputStreamWriter(out));
+		write(new OutputStreamWriter(out),jta);
 	} catch (Exception e) {
 	    out.close();
 	    //	    throw new IOException(e);
