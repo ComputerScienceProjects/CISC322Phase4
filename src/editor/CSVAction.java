@@ -1,4 +1,4 @@
-// $Id: TextAction.java,v 1.1 2012/10/24 17:06:40 dalamb Exp $
+
 package editor;
 import java.awt.event.ActionEvent;
 // import javax.swing.Action;
@@ -17,7 +17,7 @@ import ca.queensu.cs.dal.flex.log.Log;
  * the current table selection. Subclasses need only implement the
  * {@link #changeCSV} method.
  *<p>
- * Copyright 2010-2011 David Alex Lamb.
+ * Copyright 2016 CISC 322 Group 7.
  * See the <a href="../doc-files/copyright.html">copyright notice</a> for details.
  */
 public abstract class CSVAction extends DefaultAction {
@@ -59,7 +59,6 @@ public abstract class CSVAction extends DefaultAction {
 	    Application app = Application.getApplication();
 	    CommonWindow win = app.getActiveWindow();
 	    JTable table = (JTable) ((JScrollPane) win.getContentPane()).getViewport().getView();
-	    // if (firstArea==null) setArea(area);
 	    CSVDocument doc = (CSVDocument) app.getActiveDocument();
 	    CSVContents con = doc.getContents();
 	    int startRow = table.getSelectedRow();
@@ -71,39 +70,5 @@ public abstract class CSVAction extends DefaultAction {
 	    Log.error("CSV action error: "+ex.getLocalizedMessage());
 	}
     } // end actionPerformed
-
-    // debugging
-    /*
-    private static JTextArea firstArea = null;
-    private static void setArea(JTextArea area) {
-	TextType.setActions(area);
-	Keymap km = area.getKeymap();
-	if (km==null) {System.out.println("No keymap"); return; }
-	String actionName=DefaultEditorKit.pasteAction;
-	Action ac = TextType.getNamedAction(actionName);
-	TextType.debugAction(actionName, km, ac);
-	debugStroke("ctrl pressed V",km);
-	debugStroke("ctrl X",km);
-	debugStroke("ctrl pressed C",km);
-	firstArea = area;
-    }
-    private static void debugStroke(String stroke, Keymap km) {
-	KeyStroke testChar = KeyStroke.getKeyStroke(stroke);
-	if (testChar!=null) {
-	    System.out.print("test='"+stroke+"' '"+testChar+"'");
-	    while (km != null) {
-		if (km.isLocallyDefined(testChar)) {
-		    Action ac = km.getAction(testChar);
-		    if (ac==null) System.out.print(" no action");
-		    else System.out.print(" action "+ac);
-		    break;
-		} else {
-		    System.out.println(" not in "+km);
-		    km = km.getResolveParent();
-		}
-	    } // while 
-	    System.out.println();
-	} else System.out.println("No ctl-C keystroke");
-    } // debugStroke
-    */
+	
 } // end class CSVAction
