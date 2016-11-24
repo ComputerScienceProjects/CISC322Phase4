@@ -1,6 +1,3 @@
-/**
- * 
- */
 package editor;
 import java.util.IntSummaryStatistics;
 import java.util.ArrayList;
@@ -8,22 +5,30 @@ import javax.swing.JOptionPane;
 
 
 /**
- * @author Ian Chew
- *
+* {@link javax.swing.Action} implementing statistical measures on a given column.
+ *<p>
+ * Copyright 2016 CISC 322 Group 7.
+ * See the <a href="../doc-files/copyright.html">copyright notice</a> for details.
+ * 
+ * @author CISC 322 Group 7
+ * @version 1.0
  */
 public class ColumnStatisticsAction extends CSVAction {
-    /**
-     * Reports statistics to the user about the selected column.
-     * If multiple columns are selected, this just reports on the first one.
-     * @param con .csv content to change.
-     * @param startRow The first currently selected row.
-     * @param endRow The last currently selected row.
-     */
+
 	
 	public ColumnStatisticsAction() {
 		super("Column Statistics");
 	}
 	
+    /**
+     * Reports statistics to the user about the selected column.
+     * If multiple columns are selected, this just reports on the first one.
+     * @param con .csv content to change.
+     * @param startRow Ignored.
+     * @param endRow Ignored.
+     * @param startCol The column to report statistic on.
+     * @param endCol Ignored.
+     */	
 	@Override
 	protected void changeCSV(CSVContents con, int startRow, int startCol, int endRow, int endCol) {
 		//List of non-blank integers in the column.

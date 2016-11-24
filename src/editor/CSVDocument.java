@@ -18,6 +18,9 @@ import ca.queensu.cs.dal.edfmwk.doc.DocumentListener;
  *<p>
  * Copyright 2016 CISC 322 Group 7.
  * See the <a href="../doc-files/copyright.html">copyright notice</a> for details.
+ * 
+ * @author CISC 322 Group 7
+ * @version 1.0
  */
 public class CSVDocument
     extends AbstractDocument

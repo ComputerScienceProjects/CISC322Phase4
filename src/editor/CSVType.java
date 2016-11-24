@@ -23,6 +23,9 @@ import ca.queensu.cs.dal.flex.log.Log;
  * for representations of csv files.
  *<p>
  * Copyright 2016 CISC 322 Group 7.
+ * 
+ * @author CISC 322 Group 7
+ * @version 1.0
  */
 public class CSVType implements DocumentType {
     /**
