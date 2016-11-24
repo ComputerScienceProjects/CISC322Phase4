@@ -1,9 +1,14 @@
 package editor;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Component;
+
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableCellRenderer;
 import java.io.*;
 //import java.util.*;
 import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 // Import only those classes from edfmwk that are essential, for documentation purposes
@@ -29,6 +34,15 @@ public class CSVDocument
     private CSVContents contents;
     private JTable jta;
 
+    
+    //A renderer for right-justifying integer elements.
+    private static final DefaultTableCellRenderer rightRenderer;
+    private static final DefaultTableCellRenderer defaultRenderer = new DefaultTableCellRenderer();
+    
+    static {
+    	rightRenderer = new DefaultTableCellRenderer();
+    	rightRenderer.setHorizontalAlignment(SwingConstants.RIGHT);
+    }
     /**
      * Constructs a document representation.
      * @param type The type of the document.
@@ -37,13 +51,23 @@ public class CSVDocument
 	super(type);
 	contents = new CSVContents();
 //	contents.addDocumentListener(this);
-	jta = new JTable(contents);
+	jta = new JTable(contents) {
+		@Override
+		public TableCellRenderer getCellRenderer(int row, int col) {
+			if (CSVDocument.isInteger((String)dataModel.getValueAt(row, col))) {
+				return rightRenderer;
+			} else {
+				return defaultRenderer;
+			}
+		}
+	};
 	
 	//Stretch the table to fill.
 	jta.setFillsViewportHeight(true);
 	jta.setPreferredScrollableViewportSize(new Dimension(500,200));
 	//Allow sorting of the table.
 	jta.setAutoCreateRowSorter(true);
+
 	JScrollPane scrollPane = new JScrollPane(jta);
 	scrollPane.setOpaque(true);
 	
@@ -111,6 +135,11 @@ public class CSVDocument
 	throws IOException
     {
 	contents.open(in);
+	/*
+	for (int col=0; col < contents.getColumnCount(); col++) {
+		jta.getColumnModel().getColumn(col).setCellRenderer(new CSVRenderer());
+	}
+	*/
 	setChanged(false);
     } // open
 
@@ -119,5 +148,33 @@ public class CSVDocument
      *    this package that need direct access (such as actions).
      */
     CSVContents getContents() { return contents; }
+    
+    /**
+     * Check if the input string represents an integer.
+     * @param str The string to be check.
+     * @return <b>true</b> if <code>str</code> represents an integer.
+     */
+    public static boolean isInteger(String str) {
+    	if (str.isEmpty()) {
+    		//Empty strings contain no integers.
+    		return false;
+    	}
+    	if (str.equals("-")) {
+    		return false;
+    	} else if (str.charAt(0)!='-' && Character.digit(str.charAt(0),10) < 0) {
+    		//First character is invalid, so string is not an integer.
+    		return false;
+    	}
+    	//Start at 1, since we already checked the first character.
+    	for (int i=1; i<str.length(); i++) {
+    		//Character.digit returns -1 if the character is not a digit.
+    		if (Character.digit(str.charAt(i),10) < 0) {
+    			return false;
+    		}
+    	}
+    	//Every character is of the correct type.
+    	return true;
+    }
+
 } // end class TextDocument
 

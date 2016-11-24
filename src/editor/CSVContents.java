@@ -22,10 +22,12 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.table.TableModel;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.JScrollPane;
 import java.awt.Dimension;
+import javax.swing.table.DefaultTableCellRenderer;
 
 /**
  * Internal representation of a text document.
@@ -44,7 +46,9 @@ public class CSVContents
     private List<String[]> values;
     
     private final static long serialVersionUID = 1L;
+    
 
+    
     /**
      * Constructs an empty text file contents.
      */
@@ -85,14 +89,16 @@ public class CSVContents
     	
 	@Override
 	public boolean isCellEditable(int row, int col) {
-		return true;
+		return true; //All cells are editable
 	}
 	
 	@Override
 	public void setValueAt(Object value, int row, int col) {
 		values.get(row)[col] = (String)value;
+		//Tell listeners we updated this element.
+		this.fireTableCellUpdated(row, col);
 	}
-    
+	
     /**
      * Reads the entire document, and closes the stream from which it is read.
      * @param in Where to read the document from.
@@ -194,34 +200,8 @@ public class CSVContents
     }
     String s = sw.toString();
     return new ByteArrayInputStream(s.getBytes());
-    /*
-	try {
-	    // return new StringBytesInputStream(this);
-	    return new StringSequenceInputStream(this);
-	} catch (Exception e) {
-	    throw new DocumentException(e);
-	}
-	*/
     } // end getContentStream
 	
-    /**
-     * Gets a substring of the text of the document.
-     * A variant on {@link javax.swing.text.Document#getText} that raises no
-     *  exceptions.
-     * @param start Index of the first character in the substring.
-     * @param length Length of the substring
-     * @return the substring, or null if the supposed substring extends beyond
-     *   the bounds of the text.
-     */
-    /*
-    public String safelyGetText(int start, int length) {
-	try {
-	    return getText(start,length);
-	} catch (Exception e) {
-	    return null;
-	}
-	
-    } // end safelyGetText 
-    */
+
 
 } // end CSVContents
