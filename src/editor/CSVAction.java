@@ -26,7 +26,7 @@ public abstract class CSVAction extends DefaultAction {
      */
     private CSVAction() {
 	super("Text");
-    } // end constructor TextAction
+    } // end constructor CSVAction
 
     /**
      * Constructs a csv manipulation action
@@ -34,17 +34,19 @@ public abstract class CSVAction extends DefaultAction {
      */
     protected CSVAction(String name) {
 	super(name);
-    } // end constructor TextAction
+    } // end constructor CSVAction
     
     /**
      * Perform some appropriate change on a selected region of the table;
-     *    subclasses must implement this method. If
-     * <code>start</code> and <code>end</code> are equal, the operation might
-     * do nothing (as in capitalization) or might affect the character before
-     * the start or after the end (as in using a delete or backspace key).
-     * @param con Text document to change.
-     * @param start Index of the first character to change.
-     * @param end Index one beyond the last character to change.
+     * subclasses must implement this method. Note that some actions
+     * might not use all this information. For example, generating statistics on
+     * the currently selected column will likely only care about <code>startCol</code>.
+     * 
+     * @param con csv table to change.
+     * @param startRow Index of the first row to change.
+     * @param endRow Index of the last row to change.
+     * @param startCol Index of the first column to change.
+     * @param endCol Index of the last column to change.
      */
     protected abstract void changeCSV(CSVContents con, int startRow, int startCol, int endRow, int endCol);
 
@@ -68,7 +70,7 @@ public abstract class CSVAction extends DefaultAction {
 	} catch (Exception ex) {
 	    Log.error("CSV action error: "+ex.getLocalizedMessage());
 	}
-    }
+    } // end actionPerformed
 
     // debugging
     /*
