@@ -28,7 +28,7 @@ public class ColumnStatisticsAction extends CSVAction {
      * @param con .csv content to change.
      * @param startRow Ignored.
      * @param endRow Ignored.
-     * @param startCol The column to report statistic on.
+     * @param startCol The column to report statistics on.
      * @param endCol Ignored.
      */	
 	@Override
